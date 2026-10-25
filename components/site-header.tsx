@@ -129,7 +129,7 @@ export function SiteHeader() {
             : "border-b border-transparent bg-paper/55 backdrop-blur-md"
         }`}
       >
-        <div className="shell flex h-[var(--header-height)] items-center justify-between gap-6">
+        <div className="shell flex h-[var(--header-height)] items-center justify-between gap-4">
           <Link
             href="/"
             className="group flex shrink-0 items-center gap-3"
@@ -140,15 +140,16 @@ export function SiteHeader() {
               <span className="block font-serif text-[21px] tracking-[-0.04em] text-ink">
                 Mahir Faisal
               </span>
-              <span className="mt-1 hidden font-mono text-[8.5px] uppercase tracking-[0.19em] text-muted sm:block">
+              <span className="mt-1 hidden font-mono text-[8.5px] uppercase tracking-[0.19em] text-muted md:block">
                 Full-stack · 3D · AI
               </span>
             </span>
           </Link>
 
+          {/* Desktop Navigation - show from md (768px) */}
           <nav
             aria-label="Primary navigation"
-            className="hidden items-center gap-1 lg:flex"
+            className="hidden md:flex items-center gap-2"
           >
             {navItems.map((item) => {
               const isActive = active === item.id;
@@ -157,7 +158,7 @@ export function SiteHeader() {
                   key={item.id}
                   href={linkFor(item.id)}
                   aria-current={isActive ? "location" : undefined}
-                  className={`relative rounded-full px-4 py-2 text-[13px] font-medium transition-colors duration-300 ${
+                  className={`relative rounded-full px-4 py-2.5 text-sm font-medium transition-colors duration-300 min-h-[44px] ${
                     isActive
                       ? "bg-ink text-paper"
                       : "text-muted hover:bg-paper-deep hover:text-ink"
@@ -170,21 +171,23 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-2">
+            {/* Resume button - show from md (768px) */}
             <a
               href="/Mahir-Faisal-Resume.pdf"
               download
-              className="button-secondary hidden !min-h-[42px] !px-4 text-[12px] sm:inline-flex"
+              className="button-secondary hidden md:inline-flex !min-h-[42px] !px-4 text-[12px]"
             >
               <Download className="h-3.5 w-3.5" aria-hidden="true" />
               Resume
             </a>
+            {/* Mobile menu button - show on mobile/tablet */}
             <button
               type="button"
               onClick={() => setOpen(true)}
               aria-label="Open menu"
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className="grid h-11 w-11 place-items-center rounded-full border border-line-strong text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-paper lg:hidden"
+              className="md:hidden grid h-11 w-11 place-items-center rounded-full border border-line-strong text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-paper"
             >
               <Menu className="h-[18px] w-[18px]" aria-hidden="true" />
             </button>
@@ -192,99 +195,117 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {open ? (
+      {/* Mobile Menu - Full Screen Dialog */}
+      {open && (
         <div
           ref={menuRef}
           id="mobile-menu"
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="mobile-menu fixed inset-0 z-[110] overflow-y-auto bg-paper text-ink"
+          className="fixed inset-0 z-[110] bg-paper text-ink overflow-hidden"
         >
-          <div className="shell flex h-[var(--header-height)] items-center justify-between">
-            <Link
-              href="/"
-              className="flex items-center gap-3"
-              onClick={() => setOpen(false)}
-            >
-              <LogoMark className="h-9 w-9 text-[15px]" />
-              <span className="font-serif text-[21px] tracking-[-0.04em]">
-                Mahir Faisal
-              </span>
-            </Link>
-            <button
-              ref={closeRef}
-              type="button"
-              onClick={() => setOpen(false)}
-              aria-label="Close menu"
-              className="grid h-11 w-11 place-items-center rounded-full border border-line-strong transition-colors duration-300 hover:bg-ink hover:text-paper"
-            >
-              <X className="h-[18px] w-[18px]" aria-hidden="true" />
-            </button>
-          </div>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+            aria-hidden="true"
+          />
 
-          <div className="shell pb-14 pt-10">
-            <p className="eyebrow text-muted">Index</p>
-            <nav aria-label="Mobile navigation" className="mt-6 border-t border-line">
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={linkFor(item.id)}
-                  onClick={() => setOpen(false)}
-                  className="group flex items-center justify-between border-b border-line py-5"
-                >
-                  <span className="flex items-baseline gap-4">
-                    <span className="font-mono text-[10px] text-muted">
-                      {item.number}
-                    </span>
-                    <span className="font-serif text-[clamp(2.4rem,9vw,4.2rem)] leading-none tracking-[-0.04em] transition-colors duration-300 group-hover:text-violet">
-                      {item.label}
-                    </span>
-                  </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted">
-                    ↗
-                  </span>
-                </a>
-              ))}
-            </nav>
-
-            <div className="mt-8 grid gap-8 sm:grid-cols-2">
-              <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
-                  Get in touch
-                </p>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="mt-3 block break-all font-serif text-xl tracking-[-0.02em]"
-                >
-                  {site.email}
-                </a>
-                <a
-                  href={`tel:${site.phone}`}
-                  className="mt-1 block text-sm text-muted"
-                >
-                  {site.phoneDisplay}
-                </a>
-              </div>
-              <div className="sm:justify-self-end">
-                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted">
-                  Elsewhere
-                </p>
-                <SocialLinks showLabels className="mt-3" />
-              </div>
+          {/* Menu Content - Full Height */}
+          <div className="fixed inset-0 z-10 flex flex-col bg-paper overflow-y-auto">
+            {/* Mobile Header */}
+            <div className="shell flex h-[var(--header-height)] items-center justify-between flex-shrink-0">
+              <Link
+                href="/"
+                className="flex items-center gap-3"
+                onClick={() => setOpen(false)}
+              >
+                <LogoMark className="h-9 w-9 text-[15px]" />
+                <span className="font-serif text-[21px] tracking-[-0.04em]">
+                  Mahir Faisal
+                </span>
+              </Link>
+              <button
+                ref={closeRef}
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close menu"
+                className="grid h-11 w-11 place-items-center rounded-full border border-line-strong transition-colors duration-300 hover:bg-ink hover:text-paper"
+              >
+                <X className="h-[18px] w-[18px]" aria-hidden="true" />
+              </button>
             </div>
 
-            <a
-              href="/Mahir-Faisal-Resume.pdf"
-              download
-              className="button-primary mt-10 w-full sm:w-auto"
-            >
-              <Download className="h-4 w-4" aria-hidden="true" />
-              Download Resume
-            </a>
+            {/* Menu Content */}
+            <div className="shell flex-1 overflow-y-auto pb-14 pt-10">
+              <p className="eyebrow text-muted">Index</p>
+              <nav aria-label="Mobile navigation" className="mt-6 border-t border-line">
+                {navItems.map((item) => {
+                  const isActive = active === item.id;
+                  return (
+                    <Link
+                      key={item.id}
+                      href={linkFor(item.id)}
+                      onClick={() => setOpen(false)}
+                      className={`group flex items-center justify-between border-b border-line py-6 min-h-[44px] ${
+                        isActive ? "text-violet" : ""
+                      }`}
+                    >
+                      <span className="flex items-baseline gap-4">
+                        <span className="font-mono text-xs text-muted">
+                          {item.number}
+                        </span>
+                        <span className="font-serif text-[clamp(2.4rem,9vw,4.2rem)] leading-none tracking-[-0.04em] transition-colors duration-300 group-hover:text-violet">
+                          {item.label}
+                        </span>
+                      </span>
+                      <span className="font-mono text-xs uppercase tracking-[0.12em] text-muted">
+                        ↗
+                      </span>
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              <div className="mt-8 grid gap-8 sm:grid-cols-2">
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">
+                    Get in touch
+                  </p>
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="mt-3 block break-all font-serif text-xl tracking-[-0.02em]"
+                  >
+                    {site.email}
+                  </a>
+                  <a
+                    href={`tel:${site.phone}`}
+                    className="mt-1 block text-sm text-muted"
+                  >
+                    {site.phoneDisplay}
+                  </a>
+                </div>
+                <div className="sm:justify-self-end">
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">
+                    Elsewhere
+                  </p>
+                  <SocialLinks showLabels className="mt-3" />
+                </div>
+              </div>
+
+              <a
+                href="/Mahir-Faisal-Resume.pdf"
+                download
+                className="button-primary mt-10 w-full sm:w-auto"
+              >
+                <Download className="h-4 w-4" aria-hidden="true" />
+                Download Resume
+              </a>
+            </div>
           </div>
         </div>
-      ) : null}
+      )}
     </>
   );
 }
