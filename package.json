@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx @opennextjs/cloudflare@latest",
+    "build": "npx @opennextjs/cloudflare@latest build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "pages:build": "npx @opennextjs/cloudflare@latest",
+    "pages:build": "npx @opennextjs/cloudflare@latest build",
     "pages:dev": "npx @opennextjs/cloudflare@latest dev",
     "pages:deploy": "npm run pages:build && wrangler pages deploy .open-next/worker --project-name=mahir-faisal-portfolio"
   },
