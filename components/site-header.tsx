@@ -175,7 +175,7 @@ export function SiteHeader() {
             <a
               href="/Mahir-Faisal-Resume.pdf"
               download
-              className="button-secondary hidden md:inline-flex !min-h-[42px] !px-4 text-[12px]"
+              className="button-secondary hidden lg:inline-flex !min-h-[42px] !px-4 text-[12px]"
             >
               <Download className="h-3.5 w-3.5" aria-hidden="true" />
               Resume
