@@ -204,6 +204,7 @@ export function SiteHeader() {
           aria-modal="true"
           aria-label="Site menu"
           className="fixed inset-0 z-[110] bg-paper text-ink overflow-hidden"
+          style={{ maxWidth: "100vw" }}
         >
           {/* Backdrop */}
           <div
@@ -213,16 +214,16 @@ export function SiteHeader() {
           />
 
           {/* Menu Content - Full Height */}
-          <div className="fixed inset-0 z-10 flex flex-col bg-paper overflow-y-auto">
+          <div className="fixed inset-0 z-10 flex flex-col bg-paper overflow-y-auto" style={{ maxWidth: "100vw" }}>
             {/* Mobile Header */}
-            <div className="shell flex h-[var(--header-height)] items-center justify-between flex-shrink-0">
+            <div className="shell flex h-[var(--header-height)] items-center justify-between flex-shrink-0" style={{ maxWidth: "100%", paddingLeft: "clamp(16px, 4vw, 24px)", paddingRight: "clamp(16px, 4vw, 24px)" }}>
               <Link
                 href="/"
-                className="flex items-center gap-3"
+                className="flex items-center gap-3 flex-shrink-0 min-w-0"
                 onClick={() => setOpen(false)}
               >
-                <LogoMark className="h-9 w-9 text-[15px]" />
-                <span className="font-serif text-[21px] tracking-[-0.04em]">
+                <LogoMark className="h-9 w-9 text-[15px] flex-shrink-0" />
+                <span className="font-serif text-[21px] tracking-[-0.04em] truncate">
                   Mahir Faisal
                 </span>
               </Link>
@@ -231,14 +232,14 @@ export function SiteHeader() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
-                className="grid h-11 w-11 place-items-center rounded-full border border-line-strong transition-colors duration-300 hover:bg-ink hover:text-paper"
+                className="grid h-11 w-11 place-items-center rounded-full border border-line-strong transition-colors duration-300 hover:bg-ink hover:text-paper flex-shrink-0"
               >
                 <X className="h-[18px] w-[18px]" aria-hidden="true" />
               </button>
             </div>
 
             {/* Menu Content */}
-            <div className="shell flex-1 overflow-y-auto pb-14 pt-10">
+            <div className="flex-1 overflow-y-auto pb-14 pt-10" style={{ maxWidth: "100%", paddingLeft: "clamp(16px, 4vw, 24px)", paddingRight: "clamp(16px, 4vw, 24px)" }}>
               <p className="eyebrow text-muted">Index</p>
               <nav aria-label="Mobile navigation" className="mt-6 border-t border-line">
                 {navItems.map((item) => {
@@ -252,15 +253,15 @@ export function SiteHeader() {
                         isActive ? "text-violet" : ""
                       }`}
                     >
-                      <span className="flex items-baseline gap-4">
-                        <span className="font-mono text-xs text-muted">
+                      <span className="flex items-baseline gap-4 min-w-0 flex-1">
+                        <span className="font-mono text-xs text-muted flex-shrink-0">
                           {item.number}
                         </span>
-                        <span className="font-serif text-[clamp(2.4rem,9vw,4.2rem)] leading-none tracking-[-0.04em] transition-colors duration-300 group-hover:text-violet">
+                        <span className="font-serif text-[clamp(1.8rem,8vw,3.5rem)] leading-none tracking-[-0.04em] transition-colors duration-300 group-hover:text-violet truncate">
                           {item.label}
                         </span>
                       </span>
-                      <span className="font-mono text-xs uppercase tracking-[0.12em] text-muted">
+                      <span className="font-mono text-xs uppercase tracking-[0.12em] text-muted flex-shrink-0">
                         ↗
                       </span>
                     </Link>
@@ -269,7 +270,7 @@ export function SiteHeader() {
               </nav>
 
               <div className="mt-8 grid gap-8 sm:grid-cols-2">
-                <div>
+                <div className="min-w-0">
                   <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">
                     Get in touch
                   </p>
@@ -286,7 +287,7 @@ export function SiteHeader() {
                     {site.phoneDisplay}
                   </a>
                 </div>
-                <div className="sm:justify-self-end">
+                <div className="sm:justify-self-end min-w-0">
                   <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">
                     Elsewhere
                   </p>
