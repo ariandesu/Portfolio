@@ -1,0 +1,26 @@
+import { chromium } from 'playwright-core';
+import fs from 'node:fs';
+const out = '/private/var/folders/rp/m4y0wkl110j7qhd5k36m0w3m0000gn/T/opencode/qa4';
+fs.mkdirSync(out, { recursive: true });
+const browser = await chromium.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: true });
+const page = await browser.newPage({ viewport: { width: 1440, height: 960 }, reducedMotion: 'reduce' });
+await page.goto('http://localhost:3000', { waitUntil: 'networkidle' });
+await page.evaluate(() => document.fonts.ready);
+await page.waitForTimeout(800);
+console.log(await page.evaluate(() => {
+  const h1 = document.querySelector('h1'); const cs = getComputedStyle(h1);
+  const body = getComputedStyle(document.body);
+  return { h1Font: cs.fontFamily, h1Size: cs.fontSize, bodyFont: body.fontFamily, width: document.documentElement.scrollWidth, height: document.documentElement.scrollHeight };
+}));
+await page.locator('#home').screenshot({ path: `${out}/hero.png` });
+await page.locator('#about').screenshot({ path: `${out}/about.png` });
+await page.locator('#skills').screenshot({ path: `${out}/skills.png` });
+await page.locator('#projects').screenshot({ path: `${out}/projects.png` });
+await page.locator('#contact').screenshot({ path: `${out}/contact.png` });
+await page.screenshot({ path: `${out}/full.png`, fullPage: true });
+const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
+await mobile.goto('http://localhost:3000', { waitUntil: 'networkidle' });
+await mobile.evaluate(() => document.fonts.ready);
+await mobile.waitForTimeout(500);
+await mobile.locator('#home').screenshot({ path: `${out}/mobile-hero.png` });
+await browser.close();

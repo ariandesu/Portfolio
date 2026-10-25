@@ -1,0 +1,12 @@
+ghost-cursor/
+testimonial-portrait-stack/
+scripts/
+Profile (3).pdf
+WhatsApp Image *.jpeg
+*.tsbuildinfo
+.DS_Store
+public/.DS_Store
+public/images/.DS_Store
+public/images/projects/*.jpg
+public/icons/brand-*.svg
+public/icons/git.svg
