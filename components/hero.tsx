@@ -79,7 +79,7 @@ export function Hero() {
                 className="button-secondary"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
-                Download résumé
+                Download Resume
               </a>
             </div>
 

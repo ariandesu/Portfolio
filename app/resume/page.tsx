@@ -13,9 +13,9 @@ import { site } from "@/content/site";
 import { projects } from "@/content/projects";
 
 export const metadata: Metadata = {
-  title: "Résumé",
+  title: "Resume",
   description:
-    "Résumé for Mahir Faisal — full-stack developer, 3D creative and AI builder.",
+    "Resume for Mahir Faisal — full-stack developer, 3D creative and AI builder.",
   alternates: {
     canonical: "/resume",
   },

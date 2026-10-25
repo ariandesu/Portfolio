@@ -43,7 +43,7 @@ export const projects: Project[] = [
       "Upstash Redis",
       "PDF-Lib",
     ],
-    liveUrl: "https://shareflow.mhr3d.online",
+    liveUrl: "https://shareflow.design-public.com",
     repoUrl: "https://github.com/ariandesu/shareflow",
     image: "/images/projects/shareflow.webp",
     imageAlt:

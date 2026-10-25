@@ -270,7 +270,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   Want the short version?
                 </p>
                 <p className="mt-2 text-[12px] leading-relaxed text-muted">
-                  The résumé collects the essentials. The case studies hold the
+                  The Resume collects the essentials. The case studies hold the
                   decisions.
                 </p>
                 <a
@@ -278,7 +278,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   download
                   className="link-underline mt-4 inline-flex text-[11px] font-medium text-ink"
                 >
-                  Download résumé
+                  Download Resume
                   <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
                 </a>
               </div>

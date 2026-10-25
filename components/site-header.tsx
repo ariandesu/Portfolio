@@ -176,7 +176,7 @@ export function SiteHeader() {
               className="button-secondary hidden !min-h-[42px] !px-4 text-[12px] sm:inline-flex"
             >
               <Download className="h-3.5 w-3.5" aria-hidden="true" />
-              Résumé
+              Resume
             </a>
             <button
               type="button"
@@ -280,7 +280,7 @@ export function SiteHeader() {
               className="button-primary mt-10 w-full sm:w-auto"
             >
               <Download className="h-4 w-4" aria-hidden="true" />
-              Download résumé
+              Download Resume
             </a>
           </div>
         </div>

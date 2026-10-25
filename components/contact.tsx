@@ -193,7 +193,7 @@ export function Contact() {
               className="button-dark mt-4 w-full"
             >
               <Download className="h-4 w-4" aria-hidden="true" />
-              Download résumé
+              Download Resume
             </a>
 
             <div className="mt-6 flex items-center justify-between gap-4">

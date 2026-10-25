@@ -64,7 +64,7 @@ export function SiteFooter() {
                   download
                   className="text-sm text-paper/80 transition-colors duration-300 hover:text-lavender"
                 >
-                  Résumé (PDF)
+                  Resume (PDF)
                 </a>
               </li>
             </ul>

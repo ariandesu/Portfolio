@@ -46,7 +46,7 @@ npm run start
 
 The public contact details are intentionally limited to email, phone, LinkedIn and GitHub. There is no WhatsApp link.
 
-## Résumé PDF
+## Resume PDF
 
 The PDF is generated from the `/resume` page rather than stored as a static document. To regenerate it:
 
@@ -91,6 +91,6 @@ The source folders `ghost-cursor/` and `testimonial-portrait-stack/` are design 
 
 ## Project links
 
-- ShareFlow — https://shareflow.mhr3d.online
+- ShareFlow — https://shareflow.design-public.com
 - STAR PLUS — https://star-plus.shareflow.workers.dev
 - BazarDor — https://bazardor-mhr3d.vercel.app
