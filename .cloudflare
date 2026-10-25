@@ -1,0 +1,2 @@
+# This file tells Cloudflare Pages to deploy static files only
+# without attempting to use Workers/Wrangler

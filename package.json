@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "echo 'Static export generated in out/'",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
