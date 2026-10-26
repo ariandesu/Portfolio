@@ -2,7 +2,7 @@
 
 A light, editorial portfolio for **Mahir Faisal** — full-stack developer, 3D creative and AI builder. Built with Next.js, React, TypeScript and Tailwind CSS, with a small Three.js ghost-cursor accent in the contact section.
 
-**Live:** https://mahir-faisal-portfolio.vercel.app
+**Live:** https://mahir.design-public.com
 
 ## What is included
 
