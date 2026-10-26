@@ -57,7 +57,7 @@ export type Experiment = {
 };
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mahir-faisal-portfolio.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://mahir.design-public.com";
 
 export const site = {
   url: siteUrl,

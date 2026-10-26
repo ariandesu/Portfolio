@@ -110,7 +110,7 @@ export default function ResumePage() {
                 <LinkedinIcon className="h-3 w-3" />
                 linkedin.com/in/mahirfaisal777
               </a>
-              <span>Portfolio: mahir-faisal-portfolio.vercel.app</span>
+              <span>Portfolio: mahir.design-public.com</span>
             </div>
           </header>
 
@@ -279,7 +279,7 @@ export default function ResumePage() {
                       target="_blank"
                       rel="noreferrer noopener"
                     >
-                      Portfolio · mahir-faisal-portfolio.vercel.app
+                      Portfolio · mahir.design-public.com
                     </a>
                   </li>
                   <li>
